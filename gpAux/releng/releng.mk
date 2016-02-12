@@ -15,16 +15,14 @@
 #-------------------------------------------------------------------------------------
 
 UNAME = $(shell uname)
-UNAME_P = $(shell uname -p)
+UNAME_M = $(shell uname -m)
 
-UNAME_ALL = $(UNAME).$(UNAME_P)
+UNAME_ALL = $(UNAME).$(UNAME_M)
 
 # shared lib support
 ifeq (Darwin, $(UNAME))
-	ARCH_FLAGS = -m32
 	LDSFX = dylib
 else
-	ARCH_FLAGS = -m64
 	LDSFX = so
 endif
 

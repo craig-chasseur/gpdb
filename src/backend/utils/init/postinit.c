@@ -58,6 +58,7 @@
 #include "utils/tqual.h"  		/* SharedSnapshot */
 #include "pgstat.h"
 #include "utils/session_state.h"
+#include "codegen/init_codegen.h"
 
 static HeapTuple GetDatabaseTuple(const char *dbname);
 static HeapTuple GetDatabaseTupleByOid(Oid dboid);
@@ -536,6 +537,8 @@ BaseInit(void)
 	InitFileAccess();
 	smgrinit();
 	InitBufferPoolAccess();
+
+	InitCodeGen();
 }
 
 
